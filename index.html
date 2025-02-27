@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Агент по недвижимости | Ваш надежный помощник в поиске жилья</title>
+    <link rel="stylesheet" href="style.css"> <!-- Подключение внешнего файла стилей -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico"> <!-- Фавикон -->
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/cofo-sans');
+
+        body {
+            font-family: 'CoFoSans-Black', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007BFC;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        h2 {
+            font-size: 2em;
+            color: #007BFC;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.2em;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #fff;
+            color: #007BFC;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box;
+        }
+        .cta-button:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+        .services, .about, .contact {
+            margin: 40px 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .about p {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .about p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background-color: #007BFC;
+            border-radius: 3px 0 0 3px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .contact-info div {
+            flex: 1;
+            text-align: center;
+        }
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .profile-photo {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: #f4f4f4;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background-color: #007BFC;
+            border-radius: 3px 0 0 3px;
+        }
+        form label {
+            display: inline-block;
+            width: 100px; /* Ширина метки */
+            text-align: right; /* Выравнивание текста по правому краю */
+            margin-right: 10px; /* Отступ между меткой и полем ввода */
+        }
+        form input, form textarea {
+            width: calc(100% - 120px); /* Ширина поля ввода с учетом метки */
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        form textarea {
+            height: 100px; /* Высота текстового поля */
+        }
+        form button {
+            margin-top: 20px;
+            width: 100%; /* Кнопка на всю ширину */
+        }
+
+        /* Медиа-запросы для адаптации под мобильные устройства */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Уменьшаем заголовок */
+            }
+            h2 {
+                font-size: 1.5em; /* Уменьшаем подзаголовки */
+            }
+            p {
+                font-size: 1em; /* Уменьшаем размер текста */
+            }
+            .logo {
+                width: 200px; /* Уменьшаем логотип */
+            }
+            .cta-button {
+                padding: 10px 20px; /* Уменьшаем кнопку */
+                font-size: 1em;
+                width: auto; /* Убираем растягивание на всю ширину */
+            }
+            .contact-info {
+                flex-direction: column; /* Контактная информация в столбик */
+            }
+            .contact-info div {
+                margin-bottom: 10px; /* Отступ между элементами */
+            }
+            .profile-photo {
+                max-width: 100%; /* Фото на всю ширину */
+            }
+            form input, form textarea {
+                font-size: 0.9em; /* Уменьшаем размер текста в форме */
+            }
+            .about-content {
+                flex-direction: column; /* Фото и карта в столбик на мобильных */
+            }
+            .map {
+                margin-top: 20px; /* Отступ между фото и картой */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em; /* Еще меньше заголовок */
+            }
+            h2 {
+                font-size: 1.2em; /* Еще меньше подзаголовки */
+            }
+            .logo {
+                width: 150px; /* Еще меньше логотип */
+            }
+            .cta-button {
+                width: auto; /* Кнопка не на всю ширину */
+                text-align: center;
+            }
+            form label {
+                width: 100%; /* Метки на всю ширину на мобильных */
+                text-align: left; /* Выравнивание текста по левому краю */
+                margin-right: 0; /* Убираем отступ */
+            }
+            form input, form textarea {
+                width: 100%; /* Поля ввода на всю ширину */
+            }
+        }
+
+        /* Стили для блока с фото и картой */
+        .about-content {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start; /* Выравниваем по верхней границе */
+        }
+        .profile-photo {
+            flex: 1;
+            max-width: 400px;
+            border-radius: 10px;
+            object-fit: cover; /* Чтобы фото сохраняло пропорции */
+        }
+        .map {
+            flex: 1;
+            height: 510px; /* Высота карты */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #e0e0e0; /* Заглушка, если карта не загрузится */
+        }
+
+        /* Стили для формы обратной связи */
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="img/logo.png" alt="Логотип агентства недвижимости" class="logo">
+            <h1>Надежный агент по недвижимости</h1>
+            <p style="color: #fff; font-size: 1.5em;">Помогаю найти дом вашей мечты быстро и юридически безопасно.</p>
+            <div class="contact-info">
+                <div>
+                    <p>Телефон: <a href="tel:+79855593377">+79855593377</a></p>
+                </div>
+                <div>
+                    <p>Email: <a href="mailto:info@samolet-plus.ru">info@samolet-plus.ru</a></p>
+                </div>
+            </div>
+            <a href="#contact" class="cta-button">Связаться со мной</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="about">
+            <h2>Обо мне</h2>
+            <div class="about-content">
+                <img src="img/profile.png" alt="Фото" class="profile-photo">
+                <div class="map">
+                    <script charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac6156275f30667ceb8b4aadd0ed3e1aeb19eb04180303a01564cd40bc6822f9f&amp;width=794&amp;height=510&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+            </div>
+            <p>Меня зовут Елена Артемьева.</p>
+            <p>Профессиональный агент по недвижимости на вашем районе.</p>
+            <p>Моя цель — помочь вам найти идеальное жилье, соответствующее вашим потребностям и бюджету.</p>
+            <p>Работаю с клиентами на всех этапах сделки, обеспечивая прозрачность и надежность.</p>
+        </section>
+
+        <section class="services">
+            <h2>Мои услуги</h2>
+            <ul>
+                <li>Поиск и подбор недвижимости</li>
+                <li>Организация просмотров</li>
+                <li>Юридическое сопровождение сделок</li>
+                <li>Консультации по ипотеке</li>
+                <li>Оценка недвижимости</li>
+            </ul>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Свяжитесь со мной</h2>
+            <p>Готовы начать поиск вашего нового дома? Оставьте заявку, и я свяжусь с вами в ближайшее время.</p>
+            <form action="#" method="post">
+                <div>
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Отправить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 C+. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
