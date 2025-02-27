@@ -151,6 +151,26 @@
             width: 100%; /* Кнопка на всю ширину */
         }
 
+        /* Стили для блока с фото и картой */
+        .about-content {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start; /* Выравниваем по верхней границе */
+        }
+        .profile-photo {
+            flex: 1;
+            max-width: 400px;
+            border-radius: 10px;
+            object-fit: cover; /* Чтобы фото сохраняло пропорции */
+        }
+        .map {
+            flex: 1;
+            height: 510px; /* Высота карты */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #e0e0e0; /* Заглушка, если карта не загрузится */
+        }
+
         /* Медиа-запросы для адаптации под мобильные устройства */
         @media (max-width: 768px) {
             h1 {
@@ -186,6 +206,7 @@
                 flex-direction: column; /* Фото и карта в столбик на мобильных */
             }
             .map {
+                order: 2; /* Карта будет внизу на мобильных устройствах */
                 margin-top: 20px; /* Отступ между фото и картой */
             }
         }
@@ -212,26 +233,6 @@
             form input, form textarea {
                 width: 100%; /* Поля ввода на всю ширину */
             }
-        }
-
-        /* Стили для блока с фото и картой */
-        .about-content {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start; /* Выравниваем по верхней границе */
-        }
-        .profile-photo {
-            flex: 1;
-            max-width: 400px;
-            border-radius: 10px;
-            object-fit: cover; /* Чтобы фото сохраняло пропорции */
-        }
-        .map {
-            flex: 1;
-            height: 510px; /* Высота карты */
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: #e0e0e0; /* Заглушка, если карта не загрузится */
         }
 
         /* Стили для формы обратной связи */
