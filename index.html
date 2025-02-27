@@ -246,19 +246,10 @@
             margin: 0 auto;
         }
 
-        /* Фиксированная карта внизу на мобильных устройствах */
+        /* Карта под контактной формой на мобильных устройствах */
         @media (max-width: 768px) {
             .map {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 200px; /* Фиксированная высота карты */
-                z-index: 1000; /* Карта поверх других элементов */
-                border-radius: 0; /* Убираем скругление углов */
-            }
-            body {
-                padding-bottom: 200px; /* Отступ для контента, чтобы карта не перекрывала его */
+                margin-top: 40px; /* Отступ между формой и картой */
             }
         }
     </style>
@@ -330,6 +321,11 @@
                 <button type="submit" class="cta-button">Отправить</button>
             </form>
         </section>
+
+        <!-- Карта под контактной формой на мобильных устройствах -->
+        <div class="map" id="map">
+            <script charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac6156275f30667ceb8b4aadd0ed3e1aeb19eb04180303a01564cd40bc6822f9f&amp;width=794&amp;height=510&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
     </main>
 
     <footer>
